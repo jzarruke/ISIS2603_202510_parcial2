@@ -12,7 +12,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let candidato of candidatos" (click)="seleccionarCandidato(candidato)">
+            <tr *ngFor="let candidato of candidatos" (click)="seleccionarCandidato(candidato.id)">
                 <td>{{ candidato.nombre }}</td>
                 <td><img [src]="candidato.foto" alt="{{ candidato.nombre }}" style="width: 50px; height: auto;"></td>
                 <td>{{ candidato.pais_origen }}</td>
@@ -22,5 +22,5 @@
         </tbody>
     </table>
 
-    <app-candidatos-detail *ngIf="candidatoSeleccionado" [candidato]="candidatoSeleccionado"></app-candidatos-detail>
+    <app-candidatos-detail *ngIf="candidatoSeleccionado" [candID]="candidatoSeleccionado"></app-candidatos-detail>
 </div>

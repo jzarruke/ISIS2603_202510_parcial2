@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { CandidatoService } from '../candidato.service';
 
 @Component({
   selector: 'app-candidatos-detail',
@@ -7,8 +8,14 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrl: './candidatos-detail.component.css'
 })
 export class CandidatosDetailComponent implements OnInit {
-  @Input() candidato: any;
+  @Input() candID: any;
+  candidato: any;
 
-  constructor() {}
+  constructor(private serv: CandidatoService) {}
+
+  getInfo() {
+    this.candidato = this.serv.getDetailCandidato(this.candidato);
+  }
+
   ngOnInit() {}
 }
